@@ -1,0 +1,117 @@
+plugins {
+    id 'fabric-loom' version "${loom_version}"
+}
+
+version = project.mod_version
+group = project.maven_group
+
+base { archivesName = project.archives_base_name }
+
+repositories {
+    mavenCentral()
+    maven {
+        name = "Modrinth"
+        url = "https://api.modrinth.com/maven"
+        content { includeGroup "maven.modrinth" }
+    }
+}
+
+loom {
+    splitEnvironmentSourceSets()
+    runs {
+        client {
+            vmArg "-Xmx6G"
+            vmArg "-Xms2G"
+            vmArg "-XX:+UseG1GC"
+            vmArg "-XX:+ParallelRefProcEnabled"
+            vmArg "-XX:MaxGCPauseMillis=35"
+            vmArg "-XX:+UnlockExperimentalVMOptions"
+            vmArg "-XX:G1NewSizePercent=20"
+            vmArg "-XX:G1ReservePercent=20"
+        }
+        // ./gradlew runSelftest: renders each space shot on the title screen, saves captures
+        // in run/selftest/, measures frame time, then closes the game.
+        selftest {
+            client()
+            name = "Selftest"
+            vmArg "-Dorbital_strike.selftest=true"
+            programArgs "--width", "1600", "--height", "900"
+            runDir "run"
+        }
+        worldtest {
+            client()
+            name = "Worldtest"
+            vmArg "-Dorbital_strike.worldtest=true"
+            programArgs "--width", "1280", "--height", "720"
+            runDir "run"
+        }
+    }
+    mods {
+        "orbital_strike" {
+            sourceSet sourceSets.main
+            sourceSet sourceSets.client
+        }
+    }
+}
+
+dependencies {
+    minecraft "com.mojang:minecraft:${project.minecraft_version}"
+    mappings "net.fabricmc:yarn:${project.yarn_mappings}:v2"
+    modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
+    modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
+
+    // FPS optimization and shader support (client runtime only, not bundled in mod jar).
+    modClientRuntimeOnly "maven.modrinth:sodium:mc1.21.1-0.6.13-fabric"
+    modClientRuntimeOnly "maven.modrinth:iris:1.8.8+1.21.1-fabric"
+
+    testImplementation platform("org.junit:junit-bom:5.10.2")
+    testImplementation "org.junit.jupiter:junit-jupiter"
+    testRuntimeOnly "org.junit.platform:junit-platform-launcher"
+}
+
+processResources {
+    inputs.property "version", project.version
+    filesMatching("fabric.mod.json") { expand "version": project.version }
+}
+
+tasks.withType(JavaCompile).configureEach {
+    it.options.release = 21
+    it.options.encoding = "UTF-8"
+}
+
+java {
+    withSourcesJar()
+    sourceCompatibility = JavaVersion.VERSION_21
+    targetCompatibility = JavaVersion.VERSION_21
+}
+
+// Client classes without Minecraft dependencies (geometry, OBJ loader) are tested in JUnit.
+sourceSets {
+    test {
+        compileClasspath += sourceSets.client.output
+        runtimeClasspath += sourceSets.client.output
+    }
+}
+
+test { useJUnitPlatform() }
+
+jar {
+    from("LICENSE") { rename { "${it}_${project.base.archivesName.get()}" } }
+    from("CREDITS.txt") { rename { "${it}_${project.base.archivesName.get()}" } }
+}
+
+// Allows typing commands in the dev server console (./gradlew runServer).
+tasks.withType(net.fabricmc.loom.task.RunGameTask).configureEach {
+    standardInput = System.in
+}
+
+// Disables Minecraft's onboarding Accessibility screen on first launch of the dev client.
+tasks.matching { it.name == "runClient" || it.name == "runSelftest" }.configureEach {
+    doFirst {
+        def options = file("run/options.txt")
+        options.parentFile.mkdirs()
+        def lines = options.exists() ? options.readLines("UTF-8").findAll { !it.startsWith("onboardAccessibility:") } : []
+        lines << "onboardAccessibility:false"
+        options.write(lines.join("\n") + "\n", "UTF-8")
+    }
+}
