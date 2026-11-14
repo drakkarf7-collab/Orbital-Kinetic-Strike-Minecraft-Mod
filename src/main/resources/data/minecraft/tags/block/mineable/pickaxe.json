@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "orbital_strike:tungsten_block",
+    "orbital_strike:thermal_conduit",
+    "orbital_strike:molten_rock",
+    "orbital_strike:ionized_crystal"
+  ]
+}

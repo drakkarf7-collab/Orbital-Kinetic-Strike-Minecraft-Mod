@@ -1,0 +1,24 @@
+{
+  "schemaVersion": 1,
+  "id": "orbital_strike",
+  "version": "${version}",
+  "name": "Orbital Kinetic Strike",
+  "description": "A tungsten needle accelerated in orbit and launched at the target. Silent impact, molten crater, then the sonic boom.",
+  "authors": ["DrakkarF7"],
+  "license": "CC0-1.0",
+  "icon": "assets/orbital_strike/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": ["fr.orbitalstrike.OrbitalStrike"],
+    "client": ["fr.orbitalstrike.client.OrbitalStrikeClient"]
+  },
+  "mixins": [
+    { "config": "orbital_strike.client.mixins.json", "environment": "client" }
+  ],
+  "depends": {
+    "fabricloader": ">=0.16.0",
+    "minecraft": "~1.21.1",
+    "java": ">=21",
+    "fabric-api": "*"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column_horizontal",
+  "textures": {
+    "end": "orbital_strike:block/charred_log_top",
+    "side": "orbital_strike:block/charred_log"
+  }
+}

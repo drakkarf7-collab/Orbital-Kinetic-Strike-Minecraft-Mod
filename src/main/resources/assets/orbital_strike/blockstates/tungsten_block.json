@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "spire=false": {
+      "model": "orbital_strike:block/tungsten_block"
+    },
+    "spire=true": {
+      "model": "orbital_strike:block/tungsten_spire"
+    }
+  }
+}

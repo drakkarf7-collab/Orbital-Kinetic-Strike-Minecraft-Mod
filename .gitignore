@@ -1,0 +1,20 @@
+# Gradle & Loom
+.gradle/
+build/
+run/
+out/
+
+# IDE files
+*.iml
+.idea/
+.vscode/
+.eclipse/
+.settings/
+.classpath
+.project
+
+# Logs & OS artifacts
+*.log
+hs_err_pid*.log
+.DS_Store
+Thumbs.db

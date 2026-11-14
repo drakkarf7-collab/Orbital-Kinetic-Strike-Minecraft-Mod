@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/snow_height8",
+  "textures": {
+    "texture": "orbital_strike:block/ash",
+    "particle": "orbital_strike:block/ash"
+  }
+}

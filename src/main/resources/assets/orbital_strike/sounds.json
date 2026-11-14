@@ -1,0 +1,17 @@
+{
+  "mark": { "sounds": [{ "name": "orbital_strike:orbital_01_mark", "stream": false }] },
+  "countdown": { "sounds": [{ "name": "orbital_strike:orbital_02_countdown", "stream": false }] },
+  "ascent": { "sounds": [{ "name": "orbital_strike:orbital_03_ascent", "stream": true }] },
+  "transfer": { "sounds": [{ "name": "orbital_strike:orbital_04_transfer", "stream": true }] },
+  "ring": { "sounds": [{ "name": "orbital_strike:orbital_05_ring", "stream": true }] },
+  "load": { "sounds": [{ "name": "orbital_strike:orbital_06_load", "stream": true }] },
+  "spin": { "sounds": [{ "name": "orbital_strike:orbital_07_spin", "stream": true }] },
+  "release": { "sounds": [{ "name": "orbital_strike:orbital_08_release", "stream": true }] },
+  "flight": { "sounds": [{ "name": "orbital_strike:orbital_09_flight", "stream": true }] },
+  "streak": { "sounds": [{ "name": "orbital_strike:orbital_10_streak", "stream": true }] },
+  "hush": { "sounds": [{ "name": "orbital_strike:orbital_11_hush", "stream": false }] },
+  "crack": { "sounds": [{ "name": "orbital_strike:orbital_12_crack", "stream": false }] },
+  "boom": { "sounds": [{ "name": "orbital_strike:orbital_13_boom", "stream": false }] },
+  "wind": { "sounds": [{ "name": "orbital_strike:orbital_14_wind", "stream": true }] },
+  "hum": { "sounds": [{ "name": "orbital_strike:orbital_15_hum", "stream": false }] }
+}

@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "orbital_strike:block/tungsten_spire",
+    "side": "orbital_strike:block/tungsten_block"
+  }
+}

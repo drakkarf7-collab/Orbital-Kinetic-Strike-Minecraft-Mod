@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "IAI",
+    "ALA",
+    "IAI"
+  ],
+  "key": {
+    "I": {
+      "item": "minecraft:iron_ingot"
+    },
+    "A": {
+      "item": "minecraft:amethyst_shard"
+    },
+    "L": {
+      "item": "minecraft:lapis_block"
+    }
+  },
+  "result": {
+    "id": "orbital_strike:kinetic_capsule",
+    "count": 1
+  }
+}

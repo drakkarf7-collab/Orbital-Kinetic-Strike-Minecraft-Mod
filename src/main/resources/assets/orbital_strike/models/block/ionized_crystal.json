@@ -1,0 +1,42 @@
+{
+  "ambientocclusion": false,
+  "textures": {
+    "particle": "orbital_strike:block/ionized_crystal",
+    "crystal": "orbital_strike:block/ionized_crystal",
+    "base": "orbital_strike:block/tungsten_block"
+  },
+  "elements": [
+    {
+      "from": [5, 0, 5],
+      "to": [11, 2, 11],
+      "faces": {
+        "north": {"uv": [5, 14, 11, 16], "texture": "#base"},
+        "south": {"uv": [5, 14, 11, 16], "texture": "#base"},
+        "east": {"uv": [5, 14, 11, 16], "texture": "#base"},
+        "west": {"uv": [5, 14, 11, 16], "texture": "#base"},
+        "up": {"uv": [5, 5, 11, 11], "texture": "#base"},
+        "down": {"uv": [5, 5, 11, 11], "texture": "#base", "cullface": "down"}
+      }
+    },
+    {
+      "from": [1, 1, 8],
+      "to": [15, 16, 8],
+      "rotation": {"origin": [8, 8, 8], "axis": "y", "angle": 45, "rescale": true},
+      "shade": false,
+      "faces": {
+        "north": {"uv": [0, 0, 16, 16], "texture": "#crystal"},
+        "south": {"uv": [0, 0, 16, 16], "texture": "#crystal"}
+      }
+    },
+    {
+      "from": [8, 1, 1],
+      "to": [8, 16, 15],
+      "rotation": {"origin": [8, 8, 8], "axis": "y", "angle": 45, "rescale": true},
+      "shade": false,
+      "faces": {
+        "east": {"uv": [0, 0, 16, 16], "texture": "#crystal"},
+        "west": {"uv": [0, 0, 16, 16], "texture": "#crystal"}
+      }
+    }
+  ]
+}

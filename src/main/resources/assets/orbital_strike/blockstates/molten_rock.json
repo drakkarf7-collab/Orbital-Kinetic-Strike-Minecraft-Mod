@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "stage=0": {
+      "model": "orbital_strike:block/molten_rock_0"
+    },
+    "stage=1": {
+      "model": "orbital_strike:block/molten_rock_1"
+    },
+    "stage=2": {
+      "model": "orbital_strike:block/molten_rock_2"
+    },
+    "stage=3": {
+      "model": "orbital_strike:block/molten_rock_3"
+    }
+  }
+}

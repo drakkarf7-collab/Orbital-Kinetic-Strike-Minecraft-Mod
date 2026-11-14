@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "orbital_strike:block/thermal_conduit"
+  }
+}

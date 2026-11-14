@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": [
+    "NTN",
+    "CKC",
+    "NEN"
+  ],
+  "key": {
+    "N": {
+      "item": "minecraft:netherite_block"
+    },
+    "T": {
+      "item": "minecraft:spyglass"
+    },
+    "C": {
+      "item": "orbital_strike:kinetic_capsule"
+    },
+    "K": {
+      "item": "minecraft:lapis_block"
+    },
+    "E": {
+      "item": "minecraft:ender_eye"
+    }
+  },
+  "result": {
+    "id": "orbital_strike:orbital_detonator",
+    "count": 1
+  }
+}
